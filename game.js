@@ -20,13 +20,19 @@ function newRound() {
   
   // Update the color name in the HTML
   var colorNameSpan = document.getElementById("color-name");
-  colorNameSpan.textContent = currentColor.name;
+  if (colorNameSpan) {
+    colorNameSpan.textContent = currentColor.name;
+  }
   
   // Update the score and level displays
   var scoreSpan = document.getElementById("score");
-  scoreSpan.textContent = score.toString();
+  if (scoreSpan) {
+    scoreSpan.textContent = score.toString();
+  }
   var levelSpan = document.getElementById("level");
-  levelSpan.textContent = level.toString();
+  if (levelSpan) {
+    levelSpan.textContent = level.toString();
+  }
 }
 
 // Define the function to handle a correct color match
@@ -42,10 +48,12 @@ function handleCorrectMatch() {
     
     // Show a message to indicate the level up
     var messageDiv = document.getElementById("message");
-    messageDiv.textContent = "Level up!";
-    setTimeout(function() {
-      messageDiv.textContent = "";
-    }, 2000);
+    if (messageDiv) {
+      messageDiv.textContent = "Level up!";
+      setTimeout(function() {
+        messageDiv.textContent = "";
+      }, 2000);
+    }
   }
   
   // Start a new round
@@ -56,10 +64,12 @@ function handleCorrectMatch() {
 function handleIncorrectMatch() {
   // Show a message to indicate the incorrect match
   var messageDiv = document.getElementById("message");
-  messageDiv.textContent = "Incorrect match!";
-  setTimeout(function() {
-    messageDiv.textContent = "";
-  }, 2000);
+  if (messageDiv) {
+    messageDiv.textContent = "Incorrect match!";
+    setTimeout(function() {
+      messageDiv.textContent = "";
+    }, 2000);
+  }
 }
 
 // Add an event listener for the space bar input
