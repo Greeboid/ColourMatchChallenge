@@ -1,13 +1,17 @@
-// Add an event listener for the start button
+// Get the start game button
 var startButton = document.getElementById("start-button");
-startButton.addEventListener("click", function(event) {
-  // Navigate to the player name input page
-  window.location.href = "player-name.html";
-});
 
-// Add an event listener for the leaderboard button
-var leaderboardButton = document.getElementById("leaderboard-button");
-leaderboardButton.addEventListener("click", function(event) {
-  // Navigate to the leaderboard page
-  window.location.href = "leaderboard.html";
+// Add a click event listener to the start game button
+startButton.addEventListener("click", function() {
+  // Get the player name from local storage
+  var playerName = localStorage.getItem("playerName");
+
+  // If the player name is not set, redirect to the player name input page
+  if (!playerName) {
+    window.location.href = "player-name.html";
+  }
+  // Otherwise, redirect to the game page
+  else {
+    window.location.href = "game.html";
+  }
 });
